@@ -1,34 +1,55 @@
-.rounded > input
-{
-	border-left: 0px;
-	-webkit-box-shadow:inset 0 0px 0px 0px;
-	box-shadow:inset 0 0px 0px 0px;
+* {
+	margin: 0px;
+	padding: 0px;
 }
 
-.rounded > input:focus
-{
-	-webkit-box-shadow:inset 0 -5px 10px -10px;
-	box-shadow:inset 0 -5px 10px -10px;
+html, body {
+	height: 100%;
 }
 
-.rounded > span > button
-{
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.wrapper > .content {
+	flex: 1 0 auto;
+}
+
+.navbar-brand > span {
+	color: #337ab7;
+	font-weight: bold;
+}
+
+.rounded > input {
+	margin: 0px;
+	padding: 0px 22px 0px 28px;
+	-webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+	-moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+	box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+	border: 1px solid #fff;
+	border-radius: 50px;
+	background: #fff url(/img/search.png) left center no-repeat;
+}
+
+.rounded > input:focus {
+	-webkit-box-shadow: 0px 0px 12px -8px rgba(51,121,183,1);
+	-moz-box-shadow: 0px 0px 12px -8px rgba(51,121,183,1);
+	box-shadow: 0px 0px 12px -8px rgba(51,121,183,1);
+	border-color: #337ab7;
+}
+
+.rounded > span > button {
 	border-top-right-radius: 30px;
 	border-bottom-right-radius: 30px;
 	outline: none;
 }
 
-.rounded > .input-group-addon
-{
-	border-right: 0px;
-	border-top-left-radius: 30px;
-	border-bottom-left-radius: 30px;
-	top: 0px !important;
-}
-
 .user-block>a {
   padding-bottom: 15px !important;
   padding-top: 15px !important;
+	text-align: center;
 }
 
 .user-block>a>img {
@@ -38,5 +59,49 @@
 }
 
 .user-block>ul {
-  width: 179px !important;
+  width: 100% !important;
+	text-align: center;
+}
+
+/* FIX Bootstrap bug */
+.row {
+	margin: 0px !important;
+}
+
+.block {
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.block:hover {
+	background: #fcfcfc;
+}
+
+.block > .name {
+	font-size: 28px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f2f2f2;
+}
+
+ul.members
+{
+	list-style-type: none;
+	padding: 0px;
+	font-size: 16px;
+}
+
+ul.members > li
+{
+	padding-top: 5px;
+}
+
+footer {
+	flex: 0 0 auto;
+	width: 50%;
+	margin: auto;
+	border-top: 1px solid #f2f2f2;
+	text-align: center;
+	color: #a7a7a7;
+	height: 60px;
 }

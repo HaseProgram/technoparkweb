@@ -20,4 +20,12 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^helloworld/', views.helloworld),
+    url(r'^', views.index),
+    url(r'^index/', views.index),
+    url(r'^hot/', views.hot),
+    url(r'^tag/(?P<tagname>\w+)/', views.tag),
+    url(r'^question/(?P<qid>[0-9]+)/', views.question),
+    url(r'^login/', views.login),
+    url(r'^signup/', views.signup),
+    url(r'^ask/', views.ask),
 ]

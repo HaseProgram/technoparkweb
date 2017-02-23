@@ -54,7 +54,7 @@ ROOT_URLCONF = 'askzaytsev.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/root/askzaytsev/templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

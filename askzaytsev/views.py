@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.template import loader
 
 def helloworld(request):
     output = '<h2>Hello World!</h2>'
@@ -18,3 +19,31 @@ def helloworld(request):
             output += request.POST[data]
             output += '<br>'
     return HttpResponse(output)
+
+def index(request):
+    template = loader.get_template('base.html')
+    return HttpResponse(template.render(request))
+
+def hot(request):
+    output = '200'
+    return  HttpResponse(output)
+
+def tag(request, tagname):
+    output = '200'
+    return  HttpResponse(output)
+
+def question(request, qid):
+    output = '200'
+    return  HttpResponse(output)
+
+def login(request):
+    output = '200'
+    return  HttpResponse(output)
+
+def signup(request):
+    output = '200'
+    return  HttpResponse(output)
+
+def ask(request):
+    output = '200'
+    return  HttpResponse(output)
