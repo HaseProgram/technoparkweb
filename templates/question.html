@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} You can answer! {% endblock %}
+{% block extracss %}
+  <link rel="stylesheet" href="/css/nql.css">
+{% endblock %}
+
+{% block pagecontent %}
+
+{% include "onequestion.html" %}
+{% include "oneanswer.html" %}
+{% include "oneanswer.html" %}
+{% include "oneanswer.html" %}
+
+<form class="form-horizontal answer">
+  <div class="form-group">
+    <div class="col-sm-12">
+       <textarea class="form-control" rows="5" id="qst" placeholder="Enter your answer"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

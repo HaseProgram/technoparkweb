@@ -19,13 +19,15 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^helloworld/', views.helloworld),
-    url(r'^', views.index),
-    url(r'^index/', views.index),
-    url(r'^hot/', views.hot),
-    url(r'^tag/(?P<tagname>\w+)/', views.tag),
+    url(r'^helloworld', views.helloworld),
+    url(r'^index/(?P<page>\w+)/', views.index, name='new-questions'),
+    url(r'^index', views.index, name='def-new-questions'),
+    url(r'^hot', views.hot, name='hot-questions'),
+    url(r'^tag/(?P<tagname>\w+)/', views.tag, name='tag'),
     url(r'^question/(?P<qid>[0-9]+)/', views.question),
-    url(r'^login/', views.login),
-    url(r'^signup/', views.signup),
-    url(r'^ask/', views.ask),
+    url(r'^login', views.login),
+    url(r'^signup', views.signup),
+    url(r'^ask', views.ask, name='ask'),
+    url(r'^settings', views.settings, name='settings'),
+    url(r'^$', views.index),
 ]
