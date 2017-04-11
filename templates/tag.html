@@ -8,10 +8,11 @@
 {% block pagecontent %}
 <h2 style="margin: 30px;">Tag: bender</h2>
 
-{% include "onequestion.html" %}
-{% include "onequestion.html" %}
-{% include "onequestion.html" %}
+{% for question in questions %}
+  {% include "onequestion.html" %}
+{% endfor %}
 
-{% include "paginator.html" %}
+{% include "paginator.html" with block=questions %}
+
 
 {% endblock %}

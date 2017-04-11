@@ -53,19 +53,39 @@ def index(request, page=1):
     })
     return HttpResponse(template.render(context))
 
-def hot(request):
+def hot(request, page=1):
     template = loader.get_template('newquestionslist.html')
-    context = Context({"request" : request})
+    questions, page_range = paginate(getquestions(), 4, page)
+    context = Context({
+        "request" : request,
+        "questions" : questions,
+        "page_range" : page_range,
+    })
     return HttpResponse(template.render(context))
 
-def tag(request, tagname):
+def tag(request, tagname, page=1):
     template = loader.get_template('tag.html')
-    context = Context({"request" : request})
+    questions, page_range = paginate(getquestions(), 4, page)
+    context = Context({
+        "request" : request,
+        "questions" : questions,
+        "page_range" : page_range,
+    })
     return HttpResponse(template.render(context))
 
 def question(request, qid):
+    q = {
+    'title': 'How to build a moon park?',
+    'id': 1,
+    'text': 'Guys, I have trouble with a moon park. <br> Can\'t find the black-jack...',
+    'answers': random.randint(0, 30),
+    'tags': {'blackjack', 'bender'},
+    }
     template = loader.get_template('question.html')
-    context = Context({"request" : request})
+    context = Context({
+    "request" : request,
+    "question" : q,
+    })
     return HttpResponse(template.render(context))
 
 def settings(request):

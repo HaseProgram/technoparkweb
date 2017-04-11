@@ -8,7 +8,7 @@
 	<div class="questioncontent col-xs-9 col-md-10">
 		<span class="question"><a href="/question/1/">{{question.title}}</a></span>
 		<div class="btext" style="border-bottom: 1px solid #e7e7e7">
-			{{question.text}}
+			{{question.text|safe}}
 		</div>
 		<div class="meta">
 			<span class="answers"><a href="#">{{question.answers}}</a></span>
