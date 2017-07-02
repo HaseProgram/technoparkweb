@@ -1,8 +1,0 @@
-{% url 'hot-questions' as hotquestionsurlpage %}
-{% url 'def-hot-questions' as hotquestionsurl %}
-{% url 'def-new-questions' as newquestionsurl %}
-{% url 'new-questions' as newquestionsurlpage %}
-<ul class="qnav">
-  <li {% if request.path  == newquestionsurl %} class="active" {% endif %} {% if request.path  == newquestionsurlpage %} class="active" {% endif %}><a href="{{ newquestionsurl }}">New Questions</a></li>
-  <li {% if request.path  == hotquestionsurl %} class="active" {% endif %}><a href="{{ hotquestionsurl }}">Hot Questions</a></li>
-</ul>
