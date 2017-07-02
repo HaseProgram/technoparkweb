@@ -1,0 +1,101 @@
+ul.qnav {
+	list-style-type: none;
+	padding: 0px;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+ul.qnav > li {
+	display: inline-block;
+	padding: 10px 30px 10px 30px;
+}
+
+ul.qnav > li > a {
+	text-decoration: underline;
+}
+
+ul.qnav > .active > a {
+	font-size: 28px;
+	color: #000 !important;
+	text-decoration: none;
+}
+
+ul.qnav > .active > a:hover {
+	text-decoration: underline;
+}
+
+.questionblock
+{
+	border: 1px solid #e7e7e7;
+	padding: 10px;
+	position: relative;
+	border-radius: 5px;
+	background: #fdfdfd;
+	margin-bottom: 30px;
+}
+
+.questionblock > .left, .answerblock > .left
+{
+	width: 100px;
+	display: inline-block;
+}
+
+.questionblock > .left > img, .answerblock > .left > img
+{
+	width: 80px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.questionblock > .left > form > input, .answerblock > .left > form > input
+{
+	padding-left: 20px;
+	font-weight: bold;
+	width: 80px;
+}
+
+.questioncontent, .answercontent
+{
+	display: inline-block;
+	min-height: 100px;
+}
+
+.question
+{
+	font-size: 22px;
+}
+
+.btext
+{
+	font-size: 18px;
+	padding-bottom: 10px;
+}
+
+.meta
+{
+	font-size: 16px;
+	float: right;
+	padding-top: 5px;
+}
+
+.answerblock
+{
+  padding: 20px;
+  border-bottom: 1px solid #e7e7e7;
+	margin-right: 80px;
+  margin-left: 80px;
+	position: relative;
+	background: #fff;
+	margin-bottom: 30px;
+}
+
+form.answer
+{
+
+  padding: 20px;
+	margin-right: 80px;
+  margin-left: 80px;
+	position: relative;
+	background: #fff;
+	margin-bottom: 30px;
+}
