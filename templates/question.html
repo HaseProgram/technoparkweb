@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} You can answer! {% endblock %}
+{% block extracss %}
+  <link rel="stylesheet" href="/css/nql.css">
+{% endblock %}
+
+{% block pagecontent %}
+{% include "onequestion.html" %}
+
+{% for ans in answers%}
+  {% include "oneanswer.html" with answer=ans %}
+{%endfor%}
+
+{% include "paginatorqest.html" with block=question %}
+
+{% if request.user.is_authenticated %}
+<form method="POST" data-toggle="validator" action="{% url 'questions' qid=question.id %}" class="form-horizontal answer">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="col-sm-12">
+       {{form.textarea}}
+       <div class="help-block with-errors"></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+</form>
+{% else %}
+<div style="clear: both"></div>
+<center style="padding-bottom: 40px;">
+  <a style="font-size: 22px;" href={% url 'login' %}> You have to login to answer this question! </a>
+</center>
+{% endif %}
+
+{% endblock %}

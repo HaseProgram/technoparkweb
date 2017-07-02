@@ -1,0 +1,32 @@
+{% load new_tags %}
+<div class="answerblock">
+	<div class="left col-xs-1 col-md-1">
+		<img src="{{MEDIA_URL}}{{answer.owner.avatar}}">
+	</div>
+	<div class="col-xs-1 col-sm-1 likes" style="text-align: center">
+		 <div><a href="javascript:void(0)" data-aid={{answer.id}} data-typ="like_answer" id="up_a{{answer.id}}" class="like_answer glyphicon glyphicon-triangle-top {% is_disabled_ans answer.id request.user.id 1 %}"></a></div>
+		 <div align=center id="like_a{{answer.id}}" class="font18 grey" >{{answer.likes}}</div>
+		 <div><a href="javascript:void(0)" data-aid={{answer.id}} data-typ="dislike_answer" id="down_a{{answer.id}}" class="like_answer glyphicon glyphicon-triangle-bottom {% is_disabled_ans answer.id request.user.id -1 %}"></a></div>
+	</div>
+	<div class="answercontent col-xs-8 col-md-9">
+    <div class="btext">
+      {{answer.text}}
+    </div>
+    <form>
+      <div class="checkbox">
+				{% if question.owner.user.id == request.user.id %}
+          <label>
+            <input type="checkbox" class="correct" data-aid="{{answer.id}}" {% if answer.correct %} checked {%endif%}> Correct!
+          </label>
+        {% else %}
+            {% if answer.correct %}
+            <label>Correct!</label>
+            {% else %}
+            <label> Uncorrect </label>
+            {%endif%}
+				{%endif%}
+      </div>
+    </form>
+	</div>
+	<div class="clear-fix"></div>
+</div>

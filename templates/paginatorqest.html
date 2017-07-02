@@ -1,0 +1,25 @@
+<nav aria-label="Page navigation" style="text-align: center">
+	<ul class="pagination">
+		{% if block.has_previous %}
+		<li>
+			<a href="{%url pag_url qid=question.id page=block.previous_page_number %}" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		{% endif %}
+		{% for pg in page_range %}
+			{% if block.number == pg %}
+				<li><a class="active_page" href="{%url pag_url qid=question.id page=pg %}">{{pg}}</a></li>
+			{% else %}
+				<li><a href="{%url pag_url qid=question.id page=pg %}">{{pg}}</a></li>
+			{% endif %}
+		{% endfor %}
+		{% if block.has_next %}
+		<li>
+			<a href="{%url pag_url qid=question.id page=block.next_page_number %}" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+		{% endif %}
+	</ul>
+</nav>

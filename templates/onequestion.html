@@ -1,0 +1,28 @@
+{% load new_tags %}
+
+<div class="questionblock">
+	<div class="left col-xs-1 col-md-1">
+		<img src="{{MEDIA_URL}}{{question.owner.avatar}}">
+	</div>
+	<div class="col-xs-1 col-sm-1 likes" style="text-align: center">
+		 <div><a href="javascript:void(0)" data-qid={{question.id}} data-typ="like_question" id="up_q{{question.id}}" class="like_question glyphicon glyphicon-triangle-top {% is_disabled_que question.id request.user.id 1 %}"></a></div>
+		 <div align=center id="like_q{{question.id}}" class="font18 grey" >{{question.likes}}</div>
+		 <div><a href="javascript:void(0)" data-qid={{question.id}} data-typ="dislike_question" id="down_q{{question.id}}" class="like_question glyphicon glyphicon-triangle-bottom {% is_disabled_que question.id request.user.id -1 %}"></a></div>
+	</div>
+	<div class="questioncontent col-xs-8 col-md-9">
+		<span class="question"><a href={% url 'questions' qid=question.id %}>{{question.title}}</a></span>
+		<div class="btext" style="border-bottom: 1px solid #e7e7e7">
+			{{question.text|safe}}
+		</div>
+		<div class="meta">
+			<span class="answers">Answers: <a href="#">{{question.answers_count}}</a></span>
+			<span class="tags">
+				Tags:
+				{% for tagitem in question.tags.all %}
+	      	<a href={% url 'tag' tagname=tagitem.title %}> {{tagitem.title}}</a>
+				{% endfor %}
+			</span>
+		</div>
+	</div>
+	<div class="clear-fix"></div>
+</div>

@@ -1,0 +1,37 @@
+{% url 'ask' as askurl %}
+{% url 'settings' as settingsurl %}
+<ul class="nav navbar-nav navbar-right">
+  <li>
+    <a href="{{ askurl }}" class="btn btn-success askbtn" type="button">Ask!</a>
+  </li>
+{% if request.user.is_authenticated %}
+
+  <li class="user-block dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      {% if request.session.img == "None" %}
+      <img alt="User image" src="{{MEDIA_URL}}no-avatar.png" class="user-image"> {{request.user.username}} <span class="caret"></span>
+      {% else %}
+      <img alt="User image" src="{{MEDIA_URL}}{{request.session.img}}" class="user-image"> {{request.user.username}} <span class="caret"></span>
+      {% endif %}
+      </a>
+    <ul class="dropdown-menu">
+      <li><a href="{{ settingsurl }}">Settings</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href={% url 'logout' %}?continue={{request.path}}> Log Out </a></li>
+    </ul>
+  </li>
+</ul>
+{% else %}
+
+       <li>
+         <a href={% url 'login' %}?continue={{request.path}} role="button">
+           Log in
+         </a>
+       </li>
+       <li class="PadLeft25">
+         <a href={% url 'signup' %}  role="button">
+           Register
+         </a>
+       </li>
+</ul>
+{%endif%}

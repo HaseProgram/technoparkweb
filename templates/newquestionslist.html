@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} New questions {% endblock %}
+{% block extracss %}
+  <link rel="stylesheet" href="/css/nql.css">
+{% endblock %}
+
+{% block pagecontent %}
+{% include "qnav.html" %}
+{% csrf_token %}
+{% for question in questions %}
+  {% include "onequestion.html" %}
+{% endfor %}
+
+{% include "paginator.html" with block=questions %}
+
+{% endblock %}
